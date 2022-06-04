@@ -1,22 +1,11 @@
-/* eslint-disable max-depth */
-import { shallowEqual } from "react-redux";
+import shallowEqualWithSecondDepthKey from "./shallowEqualWithDepthKey";
 
-function productListEquality(arrA, arrB) {
+const productListEquality = (key) => (arrA, arrB) => {
   if (arrA.length !== arrB.length) return false;
-  for (let i = 0; i < arrA.length; i += 1) {
-    const keys = Object.keys(arrA[i]);
-    for (let j = 0; j < keys.length; j += 1) {
-      const key = keys[j];
-      if (key === "thumbnail_image") {
-        if (!shallowEqual(arrA[i][key], arrB[i][key])) {
-          return false;
-        }
-      } else if (arrA[i][key] !== arrB[i][key]) {
-        return false;
-      }
-    }
-  }
-  return true;
-}
+
+  return arrA.some((_, index) => {
+    return shallowEqualWithSecondDepthKey(arrA[index], arrB[index], key);
+  });
+};
 
 export default productListEquality;

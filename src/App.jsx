@@ -15,7 +15,7 @@ function App() {
   const [error, setError] = useState(null);
   const productList = useSelector(
     ({ productList }) => productList,
-    productListEquality
+    productListEquality("thumbnail_image")
   );
   const dispatch = useDispatch();
   const getProductList = () => {
