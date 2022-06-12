@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import productListEquality from "@redux/equalities/productListEquality";
 import useApiQuery from "@hooks/useApiQuery";
@@ -12,10 +13,9 @@ import CartTotal from "./components/cart-total/CartTotal";
 
 function Cart() {
   const dispatch = useDispatch();
-  const { isLoding, error } = useApiQuery({
+  const { isLoding, error, query } = useApiQuery({
     // eslint-disable-next-line no-undef
     queryFn: () => fetch(`${API_URL}/products`),
-    queryOnMount: true,
     onSuccess: (productList) => {
       dispatch(createAction(ACTION_TYPE.UPDATE_PRODUCT_LIST, productList));
     },
@@ -24,6 +24,10 @@ function Cart() {
     ({ productList }) => productList,
     productListEquality("thumbnail_image")
   );
+
+  useEffect(() => {
+    productList.length === 0 && query();
+  }, []);
 
   if (isLoding) return <p>Loading...</p>;
   if (error) return <p>Error!</p>;
