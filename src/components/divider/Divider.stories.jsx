@@ -6,7 +6,7 @@ export default {
   argTypes: {},
 };
 
-function Template(args) {
+function Template(props) {
   return <Divider {...args} />;
 }
 

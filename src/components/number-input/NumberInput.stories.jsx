@@ -13,7 +13,7 @@ export default {
   },
 };
 
-function Template(args) {
+function Template(props) {
   return <NumberInput {...args} />;
 }
 

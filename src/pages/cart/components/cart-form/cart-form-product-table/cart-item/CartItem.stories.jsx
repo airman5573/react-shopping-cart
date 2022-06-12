@@ -7,7 +7,7 @@ export default {
   argTypes: {},
 };
 
-function Template(args) {
+function Template(props) {
   return (
     <div style={{ maxWidth: "600px" }}>
       <CartItem {...args} />

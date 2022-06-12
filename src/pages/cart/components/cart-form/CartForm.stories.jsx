@@ -38,7 +38,7 @@ const initialState = {
 
 const store = createStore(reducer, initialState, applyMiddleware(thunk));
 
-function Template(args) {
+function Template(props) {
   return (
     <Provider store={store}>
       <div style={{ maxWidth: "600px" }}>

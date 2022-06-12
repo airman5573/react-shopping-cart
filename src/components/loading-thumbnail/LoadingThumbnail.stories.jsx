@@ -10,7 +10,7 @@ export default {
   },
 };
 
-function Template(args) {
+function Template(props) {
   return (
     <div style={{ width: "300px" }}>
       <LoadingThumbnail {...args} />

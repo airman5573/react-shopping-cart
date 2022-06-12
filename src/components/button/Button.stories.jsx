@@ -14,7 +14,7 @@ export default {
   },
 };
 
-function Template(args) {
+function Template(props) {
   return <Button {...args}>Button</Button>;
 }
 

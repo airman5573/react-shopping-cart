@@ -8,7 +8,7 @@ export default {
   argTypes: {},
 };
 
-function Template(args) {
+function Template(props) {
   return (
     <TitleBox {...args}>
       <TitleBoxHead>Box Title</TitleBoxHead>
