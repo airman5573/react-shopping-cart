@@ -12,7 +12,7 @@
     "storybook": "start-storybook -p 6006",
     "build:storybook": "build-storybook",
     "test": "jest --verbose",
-    "chromatic": "npx chromatic --project-token=1a6ccb5b9389"
+    "chromatic": "source .hidden.env && npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
   },
   "repository": {
     "type": "git",

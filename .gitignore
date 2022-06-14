@@ -25,5 +25,9 @@ sketch
 # website: https://storybook.js.org/
 
 storybook-static/
+/build-storybook.log
+
+### Environment Variables ###
+.hidden.env
 
 # End of https://www.toptal.com/developers/gitignore/api/react,storybookjs
