@@ -58,8 +58,8 @@ function useApiQuery({ queryFn, queryOnMount = false, onSuccess, onError }) {
         onSuccess(data);
       }
     } catch (e) {
-      dispatch({ type: ACTIONS.REJECTED, payload: e })
-      if (onError && onError === "function") {
+      dispatch({ type: ACTIONS.REJECTED, payload: e });
+      if (onError && typeof onError === "function") {
         onError(e);
       }
     }
